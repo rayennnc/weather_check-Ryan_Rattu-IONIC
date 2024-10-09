@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      Weather App
+      By: Ryan Rattu
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-input [(ngModel)]="cityName" placeholder="Enter city name"></ion-input>
+        <ion-button (click)="searchCity()">
+          <ion-icon name="search-outline"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="weather && !error" class="weather-card">
+    <ion-card-header>
+      <ion-card-title class="city-name">{{ weather.name }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="weather-icon">
+        <img [src]="'http://openweathermap.org/img/w/' + weather.weather[0].icon + '.png'" alt="Weather icon">
+      </div>
+      <h1 class="temperature">{{ weather.main.temp | number:'1.0-0' }}°C</h1>
+      <p class="description">{{ weather.weather[0].description }}</p>
+      <ion-list>
+        <ion-item>
+          <ion-icon name="water-outline" slot="start"></ion-icon>
+          <ion-label>Humidity</ion-label>
+          <ion-note slot="end">{{ weather.main.humidity }}%</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="speedometer-outline" slot="start"></ion-icon>
+          <ion-label>Wind Speed</ion-label>
+          <ion-note slot="end">{{ weather.wind.speed }} m/s</ion-note>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  
+  <div *ngIf="error" class="error-message">
+    {{ error }}
+  </div>
+</ion-content>
