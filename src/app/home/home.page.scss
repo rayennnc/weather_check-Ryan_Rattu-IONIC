@@ -3,10 +3,14 @@ ion-content {
 }
 
 .weather-card {
+  ion-card-content {
+    display: flex;
+    flex-direction: column;
   background: rgba(255, 255, 255, 0.8);
   border-radius: 20px;
   overflow: hidden;
   animation: fadeIn 0.5s ease-out;
+  }
 }
 
 @keyframes fadeIn {
@@ -22,6 +26,15 @@ ion-content {
 
 .weather-icon {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: rgba(230, 242, 255, 0.7);
   img {
     width: 120px;
     height: 120px;
@@ -49,6 +62,7 @@ ion-content {
 }
 
 .description {
+  text-transform: capitalize;
   text-align: center;
   font-size: 1.2em;
   color: #34495e;

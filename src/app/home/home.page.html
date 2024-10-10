@@ -31,7 +31,7 @@
     </ion-card-header>
     <ion-card-content>
       <div class="weather-icon">
-        <img [src]="'http://openweathermap.org/img/w/' + weather.weather[0].icon + '.png'" alt="Weather icon">
+        <img [src]="weather.iconUrl" alt="Weather icon">
       </div>
       <h1 class="temperature">{{ weather.main.temp | number:'1.0-0' }}°C</h1>
       <p class="description">{{ weather.weather[0].description }}</p>
