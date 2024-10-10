@@ -79,16 +79,33 @@ ion-item {
   40%, 60% { transform: translate3d(4px, 0, 0); }
 }
 
+ion-note {
+  color: black;
+}
+
+.current-time {
+  color: black;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 ion-input {
-  --background: black;
+  flex-grow: 1;
+  --background: rgb(0, 0, 0);
   --padding-start: 16px;
-  border-radius: 20px;
-  margin-right: 10px;
-  color: white;
+  --padding-end: 16px;
+  border-radius: 25px;
 }
 
 ion-button {
-  --border-radius: 50%;
-  width: 48px;
-  height: 48px;
+  --border-radius: 25px;
+  min-width: 100px; // Memberikan lebar minimum pada tombol
 }

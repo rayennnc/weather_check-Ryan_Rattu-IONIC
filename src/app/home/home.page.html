@@ -10,18 +10,24 @@
 <ion-content [fullscreen]="true" class="ion-padding">
   <ion-card>
     <ion-card-content>
-      <ion-item>
-        <ion-input [(ngModel)]="cityName" placeholder="Enter city name"></ion-input>
-        <ion-button (click)="searchCity()">
-          <ion-icon name="search-outline"></ion-icon>
+      <div class="search-container">
+        <ion-input 
+          [(ngModel)]="cityName" 
+          placeholder="Enter city name"
+          (keyup.enter)="searchCity()"
+        ></ion-input>
+        <ion-button (click)="searchCity()" expand="block" fill="solid" shape="round">
+          <ion-icon name="search-outline" slot="start"></ion-icon>
+          Search
         </ion-button>
-      </ion-item>
+      </div>
     </ion-card-content>
   </ion-card>
 
   <ion-card *ngIf="weather && !error" class="weather-card">
     <ion-card-header>
       <ion-card-title class="city-name">{{ weather.name }}</ion-card-title>
+      <ion-card-subtitle class="current-time">{{ currentTime | date:'medium' }}</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
       <div class="weather-icon">
